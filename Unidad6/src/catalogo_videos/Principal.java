@@ -5,7 +5,7 @@ import entrada.Teclado;
 public class Principal {
 
 	public static void main(String[] args) {
-		Catalogo catalogo = new Catalogo(6);
+		Catalogo catalogo = new Catalogo(20);
 		int opcion = 0;
 		
 		Pelicula pelicula1 = new Pelicula("a", 2.1, 3, "a");
@@ -15,9 +15,17 @@ public class Principal {
 		
 		catalogo.insertar(pelicula1);
 		catalogo.insertar(serie1);
+		catalogo.insertar(pelicula1);
 		catalogo.insertar(serie2);
 		catalogo.insertar(pelicula2);
-
+		catalogo.insertar(pelicula1);
+		catalogo.insertar(pelicula1);
+		catalogo.insertar(serie2);
+		catalogo.insertar(serie2);
+		catalogo.insertar(pelicula1);
+		catalogo.insertar(serie2);
+		catalogo.insertar(pelicula1);
+		
 		do {
 			escribirMenuOpciones();
 			opcion = Teclado.leerEntero("Opción: ");

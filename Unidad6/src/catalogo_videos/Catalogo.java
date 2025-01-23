@@ -94,7 +94,7 @@ public class Catalogo {
 	}
 	
 	public void reorganizarCatalogo() {
-		reorganizarCatalogoBubbleSort();
+		partitionSort();
 	}
 
 	@Override
@@ -127,7 +127,7 @@ public class Catalogo {
 		Arrays.sort(videos, 0, indice);
 	}
 	
-	private void reorganizarCatalogoBubbleSort() {
+	private void bubbleSort() {
 		for (int i = 1; i < indice; i++) {
 			for (int j = 0; j < indice - i; j++) {
 				if (videos[j] instanceof Serie && videos[j+1] instanceof Pelicula) {
@@ -135,6 +135,27 @@ public class Catalogo {
 					videos[j] = videos[j+1];
 					videos[j+1] = videoAux;
 				}	
+			}
+		}
+	}
+	
+	private void partitionSort() {
+		int i = 0;
+		int j = indice - 1;
+		
+		while (i < j) {
+			if (videos[i] instanceof Serie && videos[j] instanceof Pelicula) {
+				Video videoAux = videos[i];
+				videos[i] = videos[j];
+				videos[j] = videoAux;
+			}
+			
+			if (videos[i] instanceof Pelicula) {
+				i++;
+			}
+			
+			if (videos[j] instanceof Serie) {
+				j--;
 			}
 		}
 	}

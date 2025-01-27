@@ -2,6 +2,8 @@ package catalogo_videos;
 
 import java.util.Arrays;
 
+import comparadores.ComparadorVideo;
+
 public class Catalogo {
 
 	private Video[] videos;
@@ -94,7 +96,7 @@ public class Catalogo {
 	}
 	
 	public void reorganizarCatalogo() {
-		reorganizarCatalogoSort();
+		reorganizarCatalogoSortComparator();
 	}
 
 	@Override
@@ -127,6 +129,10 @@ public class Catalogo {
 	
 	private void reorganizarCatalogoSort() {
 		Arrays.sort(videos, 0, indice);
+	}
+	
+	private void reorganizarCatalogoSortComparator() {
+		Arrays.sort(videos, 0, indice, new ComparadorVideo());
 	}
 	
 	private void bubbleSort() {

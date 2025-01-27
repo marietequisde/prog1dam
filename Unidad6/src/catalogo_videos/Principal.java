@@ -8,23 +8,7 @@ public class Principal {
 		Catalogo catalogo = new Catalogo(20);
 		int opcion = 0;
 		
-		Pelicula pelicula1 = new Pelicula("a", 2.1, 3, "a");
-		Pelicula pelicula2 = new Pelicula("b", 2.1, 3, "b");
-		Serie serie1 = new Serie("a", 3, 3, 3, 3, 3);
-		Serie serie2 = new Serie("a", 3, 3, 3, 3, 3);
-		
-		catalogo.insertar(pelicula1);
-		catalogo.insertar(serie1);
-		catalogo.insertar(pelicula1);
-		catalogo.insertar(serie2);
-		catalogo.insertar(pelicula2);
-		catalogo.insertar(pelicula1);
-		catalogo.insertar(pelicula1);
-		catalogo.insertar(serie2);
-		catalogo.insertar(serie2);
-		catalogo.insertar(pelicula1);
-		catalogo.insertar(serie2);
-		catalogo.insertar(pelicula1);
+		insertarDatosPrueba(catalogo);
 		
 		do {
 			escribirMenuOpciones();
@@ -158,6 +142,21 @@ public class Principal {
 		} else {
 			System.out.println("Error al insertar: catálogo lleno.");
 		}
+	}
+	
+	public static void insertarDatosPrueba(Catalogo catalogo) {
+		catalogo.insertar(new Pelicula("a", 2.1, 3, "a"));
+		catalogo.insertar(new Serie("c", 3, 3, 3, 3, 3));
+		catalogo.insertar(new Pelicula("d", 2.1, 3, "a"));
+		catalogo.insertar(new Serie("k", 3, 3, 3, 3, 3));
+		catalogo.insertar(new Pelicula("n", 2.1, 3, "a"));
+		catalogo.insertar(new Pelicula("f", 2.1, 3, "a"));
+		catalogo.insertar(new Pelicula("s", 2.1, 3, "a"));
+		catalogo.insertar(new Serie("e", 3, 3, 3, 3, 3));
+		catalogo.insertar(new Serie("p", 3, 3, 3, 3, 3));
+		catalogo.insertar(new Pelicula("y", 2.1, 3, "a"));
+		catalogo.insertar(new Serie("b", 3, 3, 3, 3, 3));
+		catalogo.insertar(new Pelicula("i", 2.1, 3, "a"));
 	}
 
 }

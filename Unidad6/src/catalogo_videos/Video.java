@@ -39,7 +39,7 @@ public abstract class Video implements Comparable<Video>{
 		if (this instanceof Serie && o instanceof Pelicula) {
 			return 1;
 		}
-		return 0;
+		return this.getTitulo().compareToIgnoreCase(o.getTitulo());
 	}
 
 }

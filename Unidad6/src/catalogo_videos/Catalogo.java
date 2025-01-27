@@ -94,7 +94,7 @@ public class Catalogo {
 	}
 	
 	public void reorganizarCatalogo() {
-		partitionSort();
+		reorganizarCatalogoSort();
 	}
 
 	@Override
@@ -106,9 +106,7 @@ public class Catalogo {
 		}
 
 		for (int i = 0; i < indice; i++) {
-			if (videos[i] != null) {
-				cadena += String.format("(%d) %s\n", i, videos[i].toString());
-			}
+			cadena += String.format("(%d) %s\n", i, videos[i].toString());
 		}
 
 		return cadena;
@@ -121,6 +119,10 @@ public class Catalogo {
 			}
 		}
 		return null;
+	}
+	
+	public boolean estaVacio() {
+		return indice == 0;
 	}
 	
 	private void reorganizarCatalogoSort() {

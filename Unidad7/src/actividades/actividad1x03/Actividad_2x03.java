@@ -6,6 +6,9 @@ import java.util.Iterator;
 
 import entrada.Teclado;
 
+/**
+ * @author Mario Fernández
+ */
 public class Actividad_2x03 {
 
 	public static void main(String[] args) {

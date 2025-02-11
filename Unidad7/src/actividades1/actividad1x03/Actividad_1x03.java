@@ -1,4 +1,4 @@
-package actividades.actividad1x03;
+package actividades1.actividad1x03;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import entrada.Teclado;
 /**
  * @author Mario Fernández
  */
-public class Actividad_2x03 {
+public class Actividad_1x03 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

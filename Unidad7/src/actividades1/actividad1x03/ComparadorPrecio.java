@@ -1,4 +1,4 @@
-package actividades.actividad1x03;
+package actividades1.actividad1x03;
 
 import java.util.Comparator;
 

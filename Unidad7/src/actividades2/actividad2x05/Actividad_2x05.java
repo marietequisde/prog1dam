@@ -1,10 +1,16 @@
 package actividades2.actividad2x05;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import actividades1.actividad1x03.Libro;
+import actividades2.actividad2x05.comparadores.ComparadorDni;
+import actividades2.actividad2x05.comparadores.ComparadorFecha;
+import actividades2.actividad2x05.comparadores.ComparadorNombre;
 import entrada.Teclado;
 
 public class Actividad_2x05 {
@@ -49,7 +55,7 @@ public class Actividad_2x05 {
 		} while (opcion != 0);
 	}
 
-	public static void insertarCliente(Set<Cliente> clientes) {
+	public static void insertarCliente(Collection<Cliente> clientes) {
 		String dni = Teclado.leerCadena("DNI: ");
 		String nombre = Teclado.leerCadena("Nombre: ");
 		Fecha fechaNacimiento = new Fecha(
@@ -71,7 +77,7 @@ public class Actividad_2x05 {
 
 	}
 
-	public static void eliminarClienteDNI(Set<Cliente> clientes) {
+	public static void eliminarClienteDNI(Collection<Cliente> clientes) {
 		String dni = Teclado.leerCadena("DNI: ");
 		if (clientes.remove(new Cliente(dni))) {
 			System.out.println("Se ha eliminado el cliente del conjunto.");
@@ -80,7 +86,7 @@ public class Actividad_2x05 {
 		}
 	}
 
-	public static void consultarClienteDNI(Set<Cliente> clientes) {
+	public static void consultarClienteDNI(Collection<Cliente> clientes) {
 		String dni = Teclado.leerCadena("DNI: ");
 		boolean encontrado = false;
 		
@@ -100,43 +106,46 @@ public class Actividad_2x05 {
 		}
 	}
 
-	public static void consultarClientesOrdenDniAsc(Set<Cliente> clientes) {
+	public static void consultarClientesOrdenDniAsc(Collection<Cliente> clientes) {
 		if (!clientes.isEmpty()) {
-			Set<Cliente> aux = new TreeSet<Cliente>(new ComparadorDni());
+			List<Cliente> aux = new LinkedList<Cliente>();
 			aux.addAll(clientes);
+			Collections.sort(aux, new ComparadorDni());
 			
-			Iterator<Cliente> it = aux.iterator();
-			while(it.hasNext()) {
-				System.out.println(it.next().toString());
-			}	
+			for (Cliente cliente : aux) {
+				System.out.println(cliente.toString());
+			}
+			
 		} else {
 			System.out.println("El conjunto está vacío.");
 		}
 	}
 
-	public static void consultarClientesOrdenNombreAsc(Set<Cliente> clientes) {
+	public static void consultarClientesOrdenNombreAsc(Collection<Cliente> clientes) {
 		if (!clientes.isEmpty()) {
-			Set<Cliente> aux = new TreeSet<Cliente>(new ComparadorNombre());
+			List<Cliente> aux = new LinkedList<Cliente>();
 			aux.addAll(clientes);
+			Collections.sort(aux, new ComparadorNombre());
 			
-			Iterator<Cliente> it = aux.iterator();
-			while(it.hasNext()) {
-				System.out.println(it.next().toString());
+			for (Cliente cliente : aux) {
+				System.out.println(cliente.toString());
 			}
+			
 		} else {
 			System.out.println("El conjunto está vacío.");
 		}
 	}
 
-	public static void consultarClientesOrdenFechaAsc(Set<Cliente> clientes) {
+	public static void consultarClientesOrdenFechaAsc(Collection<Cliente> clientes) {
 		if (!clientes.isEmpty()) {
-			Set<Cliente> aux = new TreeSet<Cliente>(new ComparadorFecha());
+			List<Cliente> aux = new LinkedList<Cliente>();
 			aux.addAll(clientes);
+			Collections.sort(aux, new ComparadorFecha());
 			
-			Iterator<Cliente> it = aux.iterator();
-			while(it.hasNext()) {
-				System.out.println(it.next().toString());
+			for (Cliente cliente : aux) {
+				System.out.println(cliente.toString());
 			}
+			
 		} else {
 			System.out.println("El conjunto está vacío.");
 		}
@@ -152,7 +161,7 @@ public class Actividad_2x05 {
 		System.out.println("(6) Consultar todos los clientes del conjunto, en orden por fecha de nacimiento ascendente.");
 	}
 	
-	public static void datosPrueba(Set<Cliente> clientes) {
+	public static void datosPrueba(Collection<Cliente> clientes) {
 		clientes.add(new Cliente("11114444B", "Elena García", new Fecha(12, 06, 2002), "Huesca", "eg@gmail.com", 43587.50));
 		clientes.add(new Cliente("22225555A", "Pablo Moreno", new Fecha(23, 02, 1974), "Zaragoza", "pm@yahoo.com", 32108.69));
 		clientes.add(new Cliente("33336666C", "Jorge Ruiz", new Fecha(05, 10, 1987), "Teruel", "jr@hotmail.com", 29165.28));

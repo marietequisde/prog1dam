@@ -45,25 +45,9 @@ public class Fecha {
 	}
 	
 	public int compareTo(Fecha otraFecha) {
-		int otroAnyo = otraFecha.getAnyo();
-		int otroMes = otraFecha.getMes();
-		int otroDia = otraFecha.getDia();
-		
-		if (dia == otroDia && mes == otroMes && anyo == otroAnyo) {
-			return 0;
-		}
-		
-		if (anyo > otroAnyo) {
-			return -1;
-		}
-		if (mes > otroMes) {
-			return -1;
-		}
-		if (dia > otroDia) {
-			return -1;
-		}
-
-		return 1;
+		String esta = String.format("%04d/%02d/%02d", anyo, mes, dia);
+		String otra = String.format("%04d/%02d/%02d", otraFecha.anyo, otraFecha.mes, otraFecha.dia);
+		return esta.compareTo(otra);
 	}
 
 	@Override

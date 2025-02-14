@@ -1,6 +1,8 @@
-package actividades2.actividad2x05;
+package actividades2.actividad2x05.comparadores;
 
 import java.util.Comparator;
+
+import actividades2.actividad2x05.Cliente;
 
 public class ComparadorFecha implements Comparator<Cliente> {
 

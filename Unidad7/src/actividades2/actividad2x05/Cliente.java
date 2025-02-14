@@ -66,6 +66,4 @@ public class Cliente implements Comparable<Cliente> {
 		return this.dni.compareTo(o.dni);
 	}
 	
-	
-	
 }

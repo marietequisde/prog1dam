@@ -14,14 +14,22 @@ public class Libro extends Producto {
 		this.editorial = editorial;
 	}
 
+	public String getEscritor() {
+		return escritor;
+	}
+
+	public void setEditorial(String editorial) {
+		this.editorial = editorial;
+	}
+
 	@Override
 	public String toString() {
 		return "Libro [" + super.toString() + ", escritor=" + escritor + ", editorial=" + editorial + "]";
 	}
-	
+
 	@Override
 	public double calcularPrecio() {
-		return Math.max(PRECIO_BASE - super.getStock()*0.1, PRECIO_MINIMO);
+		return Math.max(PRECIO_BASE - super.getStock() * 0.1, PRECIO_MINIMO);
 	}
 
 }

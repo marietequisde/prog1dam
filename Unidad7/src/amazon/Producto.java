@@ -2,23 +2,22 @@ package amazon;
 
 import java.util.Objects;
 
-abstract class Producto {
-	
+public abstract class Producto {
+
 	private static int numProductos = 0;
-	
+
 	private int codigo;
 	private String nombre;
 	private String categoria;
 	private int stock;
-	
+
 	public Producto(String nombre, String categoria, int stock) {
-		super();
 		this.codigo = numProductos++;
 		this.nombre = nombre;
 		this.categoria = categoria;
 		this.stock = stock;
 	}
-	
+
 	public abstract double calcularPrecio();
 
 	@Override
@@ -44,8 +43,20 @@ abstract class Producto {
 				+ ", precio=" + calcularPrecio();
 	}
 
+	public int getCodigo() {
+		return codigo;
+	}
+
 	public int getStock() {
 		return stock;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getCategoria() {
+		return categoria;
 	}
 
 }

@@ -1,4 +1,4 @@
-package amazon.comparadores;
+package amazon.comparadores.comparadores_pelicula;
 
 import java.util.Comparator;
 

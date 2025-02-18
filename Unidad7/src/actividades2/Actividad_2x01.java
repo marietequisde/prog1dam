@@ -25,7 +25,7 @@ public class Actividad_2x01 {
 		System.out.println("Insertando:");
 		
 		for (int i = 0; i < numEnteros; i++) {
-			Integer numero = RandomUtils.generarAleatorio(10, 20);
+			Integer numero = RandomUtils.generarIntAleatorio(10, 20);
 			System.out.printf("%d * ", numero);
 		}
 		

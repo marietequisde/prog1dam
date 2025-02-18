@@ -13,6 +13,10 @@ public class Pelicula extends Producto {
 		this.director = director;
 		this.duracion = duracion;
 	}
+	
+	public String getDirector() {
+		return director;
+	}
 
 	@Override
 	public String toString() {
@@ -21,7 +25,7 @@ public class Pelicula extends Producto {
 
 	@Override
 	public double calcularPrecio() {
-		return Math.max(PRECIO_BASE - super.getStock()/10, PRECIO_MINIMO);
+		return Math.max(PRECIO_BASE - super.getStock() / 10, PRECIO_MINIMO);
 	}
 
 }

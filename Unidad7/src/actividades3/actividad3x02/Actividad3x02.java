@@ -39,7 +39,7 @@ public class Actividad3x02 {
 	}
 
 	private static void conjuntoClaves(Map<Integer, TreeSet<String>> notas) {
-		System.out.println("Elementos del Mapa Árbol de Notas (Conjunto de Claves):");
+		System.out.println("\nElementos del Mapa Árbol de Notas (Conjunto de Claves):");
 		Set<Integer> claves = notas.keySet();
 		for (Integer clave : claves) {
 			TreeSet<String> nombres = notas.get(clave);
@@ -48,7 +48,7 @@ public class Actividad3x02 {
 	}
 
 	private static void conjuntoEntradas(Map<Integer, TreeSet<String>> notas) {
-		System.out.println("Elementos del Mapa Árbol de Notas (Conjunto de Entradas):");
+		System.out.println("\nElementos del Mapa Árbol de Notas (Conjunto de Entradas):");
 		for (Map.Entry<Integer, TreeSet<String>> entrada : notas.entrySet()) {
 			System.out.printf("Nota=%d -->Nombres=%s\n", entrada.getKey(), entrada.getValue().toString());
 		}

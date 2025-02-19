@@ -9,15 +9,17 @@ public class RandomUtils {
 	}
 	
 	public static String generarStringAleatorio(int longitud) {
-		final int MIN_ASCII = 0;
-		final int MAX_ASCII = 63;
-		
 		String retVal = "";
 		do {
-			retVal += (char) generarIntAleatorio(MIN_ASCII, MAX_ASCII);
+			retVal += (char) generarLetraAleatoria();
 			longitud--;
-		} while (longitud >= 0);
+		} while (longitud > 0);
 		
 		return retVal;
+	}
+	
+	public static char generarLetraAleatoria() {
+		final String ABC = "abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		return ABC.charAt(generarIntAleatorio(0, ABC.length()-1));
 	}
 }

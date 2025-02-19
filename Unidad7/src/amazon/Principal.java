@@ -165,10 +165,10 @@ public class Principal {
 				System.out.println(producto.toString());
 			}
 
-			System.out.printf("Se han consultado %d productos del conjunto.", aux.size());
+			System.out.printf("\nSe han consultado %d productos del conjunto.\n", aux.size());
 
 		} else {
-			System.out.println("El conjunto está vacío.");
+			System.out.println("\nEl conjunto está vacío.");
 		}
 	}
 
@@ -182,10 +182,10 @@ public class Principal {
 				System.out.println(producto.toString());
 			}
 
-			System.out.printf("Se han consultado %d productos del conjunto.", aux.size());
+			System.out.printf("\nSe han consultado %d productos del conjunto.\n", aux.size());
 
 		} else {
-			System.out.println("El conjunto está vacío.");
+			System.out.println("\nEl conjunto está vacío.");
 		}
 	}
 
@@ -200,30 +200,43 @@ public class Principal {
 			}
 		}
 
-		System.out.printf("Se han consultado %d productos del conjunto.", numProductos);
+		System.out.printf("\nSe han consultado %d productos del conjunto.\n", numProductos);
 
 	}
 
 	public static void eliminarPorCodigo(Set<Producto> productos) {
 		int codigo = Teclado.leerEntero("Código: ");
 		Iterator<Producto> it = productos.iterator();
+		boolean eliminado = false;
 
-		while (it.hasNext()) {
+		while (it.hasNext() && !eliminado) {
 			Producto producto = it.next();
 			if (producto.getCodigo() == codigo) {
 				it.remove();
+				eliminado = true;
 			}
+		}
+
+		if (eliminado) {
+			System.out.println("Se ha eliminado el producto correctamente.");
+		} else {
+			System.out.println("No se ha podido encontrar el producto.");
 		}
 	}
 
 	public static void eliminarConCeroStock(Set<Producto> productos) {
 		Iterator<Producto> it = productos.iterator();
+		int numEliminados = 0;
+
 		while (it.hasNext()) {
 			Producto producto = it.next();
 			if (producto.getStock() == 0) {
 				it.remove();
+				numEliminados++;
 			}
 		}
+
+		System.out.printf("\nSe han eliminado %d productos.\n", numEliminados);
 	}
 
 	public static void consultarLibros(Set<Producto> productos) {
@@ -264,15 +277,15 @@ public class Principal {
 	public static void insertarPeliRandom(Set<Producto> productos) {
 		System.out.println("Se ha insertado una película aleatoria.");
 		productos.add(new Pelicula(RandomUtils.generarStringAleatorio(5), RandomUtils.generarStringAleatorio(5),
-				RandomUtils.generarIntAleatorio(0, 3), RandomUtils.generarStringAleatorio(5),
-				RandomUtils.generarIntAleatorio(0, 3)));
+				RandomUtils.generarIntAleatorio(0, 20), RandomUtils.generarStringAleatorio(5),
+				RandomUtils.generarIntAleatorio(10, 200)));
 
 	}
 
 	public static void insertarLibroRandom(Set<Producto> productos) {
 		System.out.println("Se ha insertado un libro aleatorio.");
 		productos.add(new Libro(RandomUtils.generarStringAleatorio(5), RandomUtils.generarStringAleatorio(5),
-				RandomUtils.generarIntAleatorio(0, 3), RandomUtils.generarStringAleatorio(5),
+				RandomUtils.generarIntAleatorio(0, 20), RandomUtils.generarStringAleatorio(5),
 				RandomUtils.generarStringAleatorio(5)));
 
 	}
@@ -280,7 +293,7 @@ public class Principal {
 	public static void insertarVideojuegoRandom(Set<Producto> productos) {
 		System.out.println("Se ha insertado un videojuego aleatorio.");
 		productos.add(new Videojuego(RandomUtils.generarStringAleatorio(5), RandomUtils.generarStringAleatorio(5),
-				RandomUtils.generarIntAleatorio(0, 3), RandomUtils.generarStringAleatorio(5),
+				RandomUtils.generarIntAleatorio(0, 20), RandomUtils.generarStringAleatorio(5),
 				RandomUtils.generarStringAleatorio(5)));
 
 	}
@@ -306,7 +319,7 @@ public class Principal {
 			}
 		}
 
-		System.out.printf("Se han insertado %d productos aleatorios.\n", numProductos);
+		System.out.printf("\nSe han insertado %d productos aleatorios.\n", numProductos);
 	}
 
 	public static void actualizarEditorialPorEscritor(Set<Producto> productos) {
@@ -322,7 +335,7 @@ public class Principal {
 			}
 		}
 
-		System.out.printf("Se han actualizado %d libros", numLibros);
+		System.out.printf("\nSe han actualizado %d libros.\n", numLibros);
 	}
 
 	public static void eliminarVideojuegosPlataforma(Set<Producto> productos) {
@@ -337,8 +350,8 @@ public class Principal {
 				numEliminados++;
 			}
 		}
-		
-		System.out.printf("Se han eliminado %d videojuegos", numEliminados);
+
+		System.out.printf("\nSe han eliminado %d videojuegos.\n", numEliminados);
 	}
 
 	public static void consultarMasCaros(Set<Producto> productos) {
@@ -347,27 +360,55 @@ public class Principal {
 
 	public static void contarProductosCadaCategoria(Set<Producto> productos) {
 		Map<String, Integer> cuentaCategorias = new HashMap<String, Integer>();
-		//TODO
+		for (Producto producto : productos) {
+			String categoria = producto.getCategoria();
+			if (cuentaCategorias.containsKey(categoria)) {
+				cuentaCategorias.put(categoria, cuentaCategorias.get(categoria) + 1);
+			} else {
+				cuentaCategorias.put(categoria, 1);
+			}
+		}
+
+		Set<String> claves = cuentaCategorias.keySet();
+		for (String categoria : claves) {
+			System.out.printf("Categoria: %s, número de productos: %d\n", categoria, cuentaCategorias.get(categoria));
+		}
+
 	}
 
 	public static void consultarMasStockCadaCategoria(Set<Producto> productos) {
+		Map<String, Producto> maxStockCategorias = new HashMap<String, Producto>();
+		for (Producto producto : productos) {
+			String categoria = producto.getCategoria();
+			if (maxStockCategorias.containsKey(categoria)) {
+				if (producto.getStock() > maxStockCategorias.get(categoria).getStock()) {
+					maxStockCategorias.put(categoria, producto);
+				}
+			} else {
+				maxStockCategorias.put(categoria, producto);
+			}
+		}
 
+		for (Map.Entry<String, Producto> categoria : maxStockCategorias.entrySet()) {
+			System.out.printf("Categoria: %s, Poducto: %s, Stock: %d\n", categoria.getKey(),
+					categoria.getValue().getNombre(), categoria.getValue().getStock());
+		}
 	}
 
 	public static void datosPrueba(Set<Producto> productos) {
-		productos.add(new Libro("libro1", "a", 1, "e1", "ed1"));
-		productos.add(new Libro("libro2", "a", 1, "e1", "ed1"));
-		productos.add(new Libro("libro3", "a", 1, "e1", "ed1"));
+		productos.add(new Libro("libro1", "b", 5, "e1", "ed1"));
+		productos.add(new Libro("libro2", "a", 8, "e2", "ed1"));
+		productos.add(new Libro("libro3", "a", 6, "e1", "ed1"));
 
-		productos.add(new Pelicula("peli1", "a", 1, "b", 1));
-		productos.add(new Pelicula("peli2", "a", 1, "c", 1));
-		productos.add(new Pelicula("peli3", "a", 1, "a", 1));
+		productos.add(new Pelicula("peli1", "a", 0, "b", 1));
+		productos.add(new Pelicula("peli2", "b", 9, "c", 1));
+		productos.add(new Pelicula("peli3", "a", 15, "a", 1));
 
-		productos.add(new Videojuego("juego1", "a", 1, "p2", "d2"));
-		productos.add(new Videojuego("juego2", "a", 1, "p3", "d3"));
-		productos.add(new Videojuego("juego3", "a", 1, "p1", "d1"));
-		productos.add(new Videojuego("juego4", "a", 1, "p2", "d4"));
-		productos.add(new Videojuego("juego5", "a", 1, "p1", "d2"));
+		productos.add(new Videojuego("juego1", "a", 8, "p2", "d2"));
+		productos.add(new Videojuego("juego2", "a", 56, "p3", "d3"));
+		productos.add(new Videojuego("juego3", "e", 0, "p1", "d1"));
+		productos.add(new Videojuego("juego4", "e", 13, "p2", "d4"));
+		productos.add(new Videojuego("juego5", "e", 17, "p1", "d2"));
 	}
 
 	public static void escribirMenuOpciones() {

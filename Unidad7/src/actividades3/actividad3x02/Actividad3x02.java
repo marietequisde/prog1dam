@@ -63,6 +63,7 @@ public class Actividad3x02 {
 			}
 		} while ((nota < 1 || nota > 10) && nota != FIN);
 
+		System.out.println("quitar");
 		return nota;
 	}
 

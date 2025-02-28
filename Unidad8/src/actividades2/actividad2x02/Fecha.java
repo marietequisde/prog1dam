@@ -21,7 +21,7 @@ public class Fecha {
 
 	}
 
-	public boolean esValida() {
+	public boolean esValida() throws ExcepcionFecha {
 		String mensajeError = "";
 
 		if (agno < 1583 || agno > 2999) {

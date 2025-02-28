@@ -12,7 +12,7 @@ public class Clientela {
 		indice = 0;
 	}
 	
-	public void insertarUsuario(Usuario usuario) {
+	public void insertarUsuario(Usuario usuario) throws ExcepcionClientela {
 		if (indice == usuarios.length) {
 			throw new ExcepcionClientela("Error al insertar usuario: vector de usuarios lleno.");
 		}
@@ -24,7 +24,7 @@ public class Clientela {
 		usuarios[indice++] = usuario;
 	}
 	
-	public void eliminarUsuario(int posicion) {
+	public void eliminarUsuario(int posicion) throws ExcepcionClientela {
 		if (indice == 0) {
 			throw new ExcepcionClientela("Error al eliminar usuario: vector de usuarios vacío.");
 		}

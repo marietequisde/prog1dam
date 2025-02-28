@@ -1,14 +1,14 @@
-package actividades2;
+package actividades2.actividad2x01;
 
-import actividades2.excepciones.ExcepcionClientela;
-import actividades2.excepciones.ExcepcionUsuario;
+import actividades2.actividad2x01.excepciones.ExcepcionClientela;
+import actividades2.actividad2x01.excepciones.ExcepcionUsuario;
 import entrada.Teclado;
 
 public class Actividad_2x01 {
 
 	public static void main(String[] args) {
 
-		Clientela clientela = new Clientela(3);
+		Clientela clientela = new Clientela(100);
 		int opcion;
 		do {
 			escribirMenu();

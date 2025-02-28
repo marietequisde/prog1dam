@@ -1,4 +1,4 @@
-package actividades2.excepciones;
+package actividades2.actividad2x01.excepciones;
 
 public class ExcepcionUsuario extends RuntimeException {
 

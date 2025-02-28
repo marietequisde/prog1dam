@@ -1,6 +1,6 @@
-package actividades2;
+package actividades2.actividad2x01;
 
-import actividades2.excepciones.ExcepcionUsuario;
+import actividades2.actividad2x01.excepciones.ExcepcionUsuario;
 
 public class Usuario {
 

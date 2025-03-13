@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="AgendaContactos/src"/>
+	<classpathentry kind="src" path="Ahorcado/src"/>
+	<classpathentry kind="src" path="CasosPracticos2/src"/>
+	<classpathentry kind="src" path="ejercicios1/src"/>
+	<classpathentry kind="src" path="EjerciciosClases/src"/>
+	<classpathentry kind="src" path="Examen/src"/>
+	<classpathentry kind="src" path="UD09 - Ejemplos Ficheros Texto/src"/>
+	<classpathentry kind="src" path="Unidad1/src"/>
+	<classpathentry kind="src" path="Unidad3/src"/>
+	<classpathentry kind="src" path="Unidad4/src"/>
+	<classpathentry kind="src" path="Unidad5/src"/>
+	<classpathentry kind="src" path="Unidad6/src"/>
+	<classpathentry kind="src" path="Unidad7/src"/>
+	<classpathentry kind="src" path="Unidad8/src"/>
+	<classpathentry kind="src" path="UtilsMario/src"/>
+	<classpathentry kind="lib" path="AgendaContactos/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="Ahorcado/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="EjerciciosClases/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="Examen/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="UD09 - Ejemplos Ficheros Texto/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="Unidad4/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="Unidad5/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="Unidad6/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="Unidad7/lib/teclado.jar"/>
+	<classpathentry kind="lib" path="Unidad8/lib/teclado.jar"/>
+	<classpathentry kind="output" path="AgendaContactos/bin"/>
+</classpath>

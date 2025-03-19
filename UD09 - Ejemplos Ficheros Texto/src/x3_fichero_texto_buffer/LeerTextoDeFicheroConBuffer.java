@@ -20,7 +20,7 @@ public class LeerTextoDeFicheroConBuffer {
       			contador++;
       			linea = flujoEntrada.readLine();
       		}
-      		System.out.println("Se han leído " + contador + " frases del fichero de texto.");
+      		System.out.println("Se han leï¿½do " + contador + " frases del fichero de texto.");
 		}
 		catch (FileNotFoundException fnfe) {                      
 			System.out.println("Error al abrir el fichero: " + fnfe.getMessage());

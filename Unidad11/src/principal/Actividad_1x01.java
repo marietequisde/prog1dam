@@ -33,7 +33,7 @@ public class Actividad_1x01 {
 					actualizarDepartamento();
 					break;
 				case 5:
-//					eliminarDepartamento();
+					eliminarDepartamento();
 					break;
 				default:
 					System.out.println("La opción de menú debe estar comprendida entre 0 y 5.");
@@ -60,16 +60,8 @@ public class Actividad_1x01 {
 	}
 
 	public static void consultarDepartamentos() {
-		Map<Integer, Departamento> departamentos = AccesoDepartamento.consultarTodos();
-		if (!departamentos.isEmpty()) {
-			for (Map.Entry<Integer, Departamento> entry : departamentos.entrySet()) {
-				System.out.printf("OID = %d -->\n%s\n", entry.getKey(), entry.getValue().toString());
-			}
-			System.out.printf("Se han consultado %d departamentos de la base de datos.", departamentos.size());
-		} else {
-			System.out.println("La base de datos no tiene ningún departamento.");
-		}
-
+		Map<String, Departamento> departamentos = AccesoDepartamento.consultarTodos();
+		escribirMapaDepartamentos(departamentos);
 	}
 
 	public static void consultarDepartamento() {
@@ -95,15 +87,26 @@ public class Actividad_1x01 {
 		}
 	}
 
-//	public static void eliminarDepartamento()  {
-//		int codigo = Teclado.leerEntero("Código: ");
-//
-//		if (AccesoDepartamento.eliminar(codigo)) {
-//			System.out.println("Se ha eliminado un departamento de la base de datos.");
-//		} else {
-//			System.out.println("No existe ningún departamento con ese código en la base de datos.");
-//		}
-//	}
+	public static void eliminarDepartamento()  {
+		int codigo = Teclado.leerEntero("Código: ");
+
+		if (AccesoDepartamento.eliminar(codigo)) {
+			System.out.println("Se ha eliminado un departamento de la base de datos.");
+		} else {
+			System.out.println("No existe ningún departamento con ese código en la base de datos.");
+		}
+	}
+	
+	private static void escribirMapaDepartamentos(Map<String, Departamento> departamentos) {
+		if (!departamentos.isEmpty()) {
+			for (Map.Entry<String, Departamento> entry : departamentos.entrySet()) {
+				System.out.printf("OID = %s -->\n%s\n", entry.getKey(), entry.getValue());
+			}
+			System.out.printf("Se han consultado %d departamentos de la base de datos.\n", departamentos.size());
+		} else {
+			System.out.println("La base de datos no tiene ningún departamento.");
+		}
+	}
 
 	private static void escribirMenuOpciones() {
 		System.out.println("0) Salir del programa.");
